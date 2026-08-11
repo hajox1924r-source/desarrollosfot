@@ -35,43 +35,73 @@
 
     <form>
 
-        <p>
-            <label for="nombre">Nombre completo:</label><br>
-            <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                placeholder="Escribe tu nombre">
-        </p>
+        <fieldset>
+            <legend>Datos del mensaje</legend>
 
-        <p>
-            <label for="correo">Correo electrónico:</label><br>
-            <input
-                type="email"
-                id="correo"
-                name="correo"
-                placeholder="nombre@correo.com">
-        </p>
+            <p>
+                <label for="nombre">Nombre completo:</label><br>
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    autocomplete="name"
+                    required
+                    placeholder="Escribe tu nombre">
+            </p>
 
-        <p>
-            <label for="cancion">Canción favorita:</label><br>
-            <input
-                type="text"
-                id="cancion"
-                name="cancion"
-                placeholder="Gimme Chocolate!!, Ratatata…">
-        </p>
+            <p>
+                <label for="correo">Correo electrónico:</label><br>
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    autocomplete="email"
+                    required
+                    placeholder="nombre@correo.com">
+            </p>
 
-        <p>
-            <label for="mensaje">Mensaje:</label><br>
+            <p>
+                <label for="cancion">Canción favorita:</label><br>
+                <input
+                    type="text"
+                    id="cancion"
+                    name="cancion"
+                    list="canciones"
+                    placeholder="Gimme Chocolate!!, Ratatata…">
+                <datalist id="canciones">
+                    <option value="Gimme Chocolate!!">
+                    <option value="RATATATA">
+                    <option value="Karate">
+                    <option value="Megitsune">
+                    <option value="PA PA YA!!">
+                    <option value="Road of Resistance">
+                </datalist>
+            </p>
 
-            <textarea
-                id="mensaje"
-                name="mensaje"
-                rows="4"
-                cols="40"
-                placeholder="Cuéntanos qué te pareció la página"></textarea>
-        </p>
+            <p>
+                <label for="miembro">Integrante favorita:</label><br>
+                <select id="miembro" name="miembro">
+                    <option value="">— Elige una —</option>
+                    <option value="su">SU-METAL</option>
+                    <option value="moa">MOAMETAL</option>
+                    <option value="momo">MOMOMETAL</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="mensaje">Mensaje:</label><br>
+
+                <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    rows="4"
+                    cols="40"
+                    maxlength="300"
+                    required
+                    placeholder="Cuéntanos qué te pareció la página"></textarea>
+            </p>
+
+        </fieldset>
 
         <p>
             <button type="submit">Enviar mensaje</button>
