@@ -57,3 +57,15 @@ nav a{
 nav a:hover {
     color: #d90429;
 }
+
+section ul {
+    padding-left: 25px;
+}
+
+section il {
+    margin-bottom: 8px;
+}
+
+section li strong {
+    color: #d90429;
+}
