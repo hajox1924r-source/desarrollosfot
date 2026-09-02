@@ -36,7 +36,6 @@ header {
 
 header h1 {
     color: #d90429;
-    text-shadow: 0 2px 10px rgba(217, 4, 41, 0.5);
     margin: 0;
 }
 
@@ -67,7 +66,7 @@ section {
     border: none;
     border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
 }
 
 section h2 {
@@ -98,25 +97,35 @@ section li strong {
 
 
 section:has(article) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-basis: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+/* Ocultar los <hr> que quedaban como celdas raras en la cuadricula */
+section:has(article) > hr {
+    display: none;
 }
 
 article {
     flex: 1 1 260px;
+    background: #1e1e1e;
     border: none;
+    border-top: 4px solid #888888;
     border-radius: 10px;
     padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
 }
 
-/* Color segun la paleta de la portada de cada album */
-article:nth-child(1) { background: linear-gradient(150deg,#7a0f1c,#280709); border-top: 5px solid #ff2d3a; box-shadow: 0 8px 26px rgba(217,4,41,0.35); }        /* BABYMETAL 2014 - rojo sangre */
-article:nth-child(2) { background: linear-gradient(150deg,#4a3a0e,#161005); border-top: 5px solid #f2c94c; box-shadow: 0 8px 26px rgba(242,201,76,0.32); }       /* Metal Resistance - oro */
-article:nth-child(3) { background: linear-gradient(150deg,#1a2a5e,#0a0e22); border-top: 5px solid #3fd0e0; box-shadow: 0 8px 26px rgba(63,208,224,0.32); }       /* Metal Galaxy - azul/cian espacial */
-article:nth-child(4) { background: linear-gradient(150deg,#3c4048,#15171b); border-top: 5px solid #dfe3ea; box-shadow: 0 8px 26px rgba(200,206,216,0.30); }      /* The Other One - plata */
-article:nth-child(5) { background: linear-gradient(150deg,#241a33,#0a0710); border-top: 5px solid transparent; border-image: linear-gradient(90deg,#4fe3d0,#9a6bff,#ff5fb0) 1; box-shadow: 0 8px 26px rgba(154,107,255,0.35); }   /* Metal Forth - cristal iridiscente */
-article:nth-child(6) { background: linear-gradient(150deg,#5a0f24,#1a0509); border-top: 5px solid #ff4d7d; box-shadow: 0 8px 26px rgba(255,45,85,0.30); }        /* FOX_FEST 2026 */
+/* Solo una linea de color arriba, segun el album */
+article:nth-of-type(1) { border-top-color: #ff2d3a; }   /* BABYMETAL 2014 */
+article:nth-of-type(2) { border-top-color: #f2c94c; }   /* Metal Resistance */
+article:nth-of-type(3) { border-top-color: #3fd0e0; }   /* Metal Galaxy */
+article:nth-of-type(4) { border-top-color: #dfe3ea; }   /* The Other One */
+article:nth-of-type(5) { border-top-color: #9a6bff; }   /* Metal Forth */
+article:nth-of-type(6) { border-top-color: #ff4d7d; }   /* FOX_FEST 2026 */
 
 article img {
     max-width: 100%;
@@ -248,7 +257,7 @@ table {
     background: #171717;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
 }
 
 th, td {
@@ -426,4 +435,25 @@ footer ul {
     font-weight: 700;
     font-size: 17px;
     color: #ff2d55;
+}
+
+/* Fichas de integrantes (banda) como tarjetas en cuadricula */
+.perfil {
+    flex: 1 1 300px;
+    max-width: 360px;
+}
+
+/* Seccion con tabla (Integrantes) a ancho completo */
+section:has(table) {
+    flex-basis: 100%;
+}
+
+/* Portada del album dentro de la tarjeta */
+article figure {
+    margin: 15px 0 0 0;
+    text-align: center;
+}
+article img {
+    max-width: 100%;
+    border-radius: 8px;
 }
